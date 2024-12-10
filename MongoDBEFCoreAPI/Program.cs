@@ -8,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MongoDbContext>(options =>
     options.UseMongoDB("mongodb://192.168.1.20:27017", "ProductsDB"));
 
+builder.Services.AddDbContext<SQLDbContext>(options =>
+    options.UseSqlServer("Server=(localdb)\\masters;Database=ProductsDB;Trusted_Connection=True;"));
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
